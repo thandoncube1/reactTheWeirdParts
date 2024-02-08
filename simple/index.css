@@ -1,0 +1,33 @@
+.container {
+    margin: 20px 10px;
+    border: 2px dotted #000;
+    padding: 10px 20px;
+}
+.information label, input {
+    display: block;
+    margin: 10px 0;
+}
+input {
+    width: 400px;
+    height: 40px;
+    font-size: 20px;
+}
+.information button {
+    margin: 20px 0;
+}
+select {
+    width: 200px;
+    height: 40px;
+}
+input[type="file"] {
+    margin: 20px 0;
+}
+.button {
+    width: 150px;
+    height: 50px;
+    background-color: rgb(0, 166, 255);
+    color: #fff;
+    font-size: 20px;
+    border: 0;
+    border-radius: 5px;
+}
