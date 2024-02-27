@@ -20,6 +20,7 @@ function App() {
                 counterOne :
                 counterTwo }
             </section>
+            <button onClick={() => root.render(<App />)}>Rerender</button>
         </>
     );
 }
