@@ -1,15 +1,26 @@
 const rootNode = document.getElementById('app');
 const root = ReactDOM.createRoot(rootNode);
-root.render(React.createElement(App));
+console.log(root);
+let counterName = "Two";
+root.render(<App />);
+console.dir(rootNode);
 
 function App() {
+    const counterOne = <Counter name={counterName} />;
+    const counterTwo = <Counter2 name={counterName} />;
     return (
-        <section>
+        <> { /**
+         * A React Fragment is not added to the DOM tree. But is used as a
+         * wrapper on the child elements and that makes the website render
+         * a little quicker.
+         */ }
             <h1>Counters</h1>
             <section>
-                <Counter />
+                { counterName === "One" ?
+                counterOne :
+                counterTwo }
             </section>
-        </section>
+        </>
     );
 }
 
@@ -25,13 +36,11 @@ function Counter({ name }) {
 
 function Counter2({ name }) {
     return (
-        <div>
+        <article>
             <h2>Counter {name}</h2>
             <p>Times clicked: 1</p>
-            <button className="button">
-                Click me
-            </button>
-        </div>
+            <button className="button">Click me</button>
+        </article>
     )
 }
 
