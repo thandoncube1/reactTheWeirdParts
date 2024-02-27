@@ -21,7 +21,7 @@ const reducerFn = function (accumulator, currentValue) {
     console.log("--- Iteration ---");
     console.log("Accumulator " + accumulator);
     console.log("Current Value " + currentValue);
-    
+
     const nextAccumulator = accumulator + " " + currentValue;
     console.log("Next Accumulator " + nextAccumulator);
 
