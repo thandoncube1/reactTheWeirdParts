@@ -15,17 +15,37 @@ function App() {
 }
 
 function Counter(props) {
-    const [state, dispatch] = React.useReducer(() => {
+    // Constants
+    const actionOption = {
+        increment: 'Increment',
+        decrement: 'Decrement'
+    }
 
+    const [state, dispatch] = React.useReducer((state, action) => {
+        switch (action.type) {
+            case 'Increment':
+                return { clicks: state.clicks + 1 }
+            case 'Decrement':
+                return { clicks: state.clicks - 1 }
+            default:
+                throw new Error();
+        }
     }, { clicks: 0 });
 
     return (
         <article>
             <h2>Counter {props.name}</h2>
             <p>You clicked {state.clicks} times</p>
-            <button className="button">
-                Click me
-            </button>
+            <ButtonComponent dispatch={dispatch} actionType={actionOption.increment} buttonName={'INCREMENT'} />
+            <ButtonComponent dispatch={dispatch} actionType={actionOption.decrement} buttonName={'DECREMENT'}/>
         </article>
     );
+}
+
+function ButtonComponent({ dispatch, actionType, buttonName }) {
+    return <button className="button" onClick={() => {
+        dispatch({ type: actionType })
+    }}>
+        { buttonName }
+    </button>
 }
